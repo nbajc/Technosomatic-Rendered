@@ -113,15 +113,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;
 .hv-lbl{text-align:center;font-size:9px;color:var(--d);letter-spacing:.08em;margin-top:4px}
 
 /* VIDEO */
+.vwrap{position:relative;overflow:hidden;background:#020202;padding-top:56.25%}
+.vwrap video{width:100%;height:100%;display:block;object-fit:cover}
 .vs{position:relative;cursor:pointer;overflow:hidden;background:#020202}
 .vs img{width:100%;display:block;filter:saturate(.8)}
 .vov{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-  background:rgba(0,0,0,.3);transition:background .3s}
-.vs:hover .vov{background:rgba(0,0,0,.1)}
+  background:rgba(0,0,0,.38);transition:background .3s}
+.vwrap:hover .vov,.vs:hover .vov{background:rgba(0,0,0,.1)}
 .vbtn{width:52px;height:52px;border:1px solid rgba(255,255,255,.32);border-radius:50%;
   display:flex;align-items:center;justify-content:center;font-size:16px;
   color:rgba(255,255,255,.55);transition:all .3s}
-.vs:hover .vbtn{border-color:var(--g);color:var(--g)}
+.vwrap:hover .vbtn,.vs:hover .vbtn{border-color:var(--g);color:var(--g)}
 
 /* RULE */
 .dash{display:flex;align-items:center;gap:12px;margin:48px 0;
@@ -211,20 +213,20 @@ footer{max-width:1160px;margin:0 auto;padding:52px 40px 0;
   <!-- 01 -->
   <div class="row">
     <div>
-      <div class="ip" onclick="openLB('chair.jpg','Fig. 01 — Chair and Pillow · Found object, painted and stained · 38″d × 34″w × 36″h')">
-        <img src="chair.jpg" alt="Chair and Pillow">
+      <div class="ip" onclick="openLB('corpus_nullius.jpg','Fig. 01 — Corpus Nullius (Phantom Impression) · Found object, painted and stained · 38″d × 34″w × 36″h')">
+        <img src="corpus_nullius.jpg" alt="Corpus Nullius (Phantom Impression)">
       </div>
-      <p class="fig">Fig. 01 — Chair and Pillow</p>
+      <p class="fig">Fig. 01 — Corpus Nullius (Phantom Impression)</p>
     </div>
     <div class="info">
       <span class="wn">RENDERED · 01</span>
-      <h3 class="wt">Chair and Pillow</h3>
+      <h3 class="wt">Corpus Nullius<small>(Phantom Impression)</small></h3>
       <div class="specs">
         <div class="sp"><span class="sl">Medium</span><span class="sv">Found object, painted and stained</span></div>
         <div class="sp"><span class="sl">Dimensions</span><span class="sv">38″d × 34″w × 36″h</span></div>
         <div class="sp"><span class="sl">Date</span><span class="sv">2026</span></div>
       </div>
-      <p class="wnote">The domestic object as somatic site. The chair receives the body; the pillow retains its impression. Paint and stain applied to found object enacts the same procedure as the digital works — a second pass, a transformation that acknowledges the original form while refusing to leave it intact. The image printed on the upholstery is not decoration. It is evidence.</p>
+      <p class="wnote"><em>Terra Nullius</em> was the legal fiction — land declared belonging to no one so it could be taken. <em>Corpus Nullius</em> is the body declared absent. But the marks remain: gold on the backrest, red across the seat, green inverted on the cushion back — anatomical fragments distributed across the upholstery's damask ground. The body has been processed out of the space. What persists is its data: the phantom impression, the somatic residue that the legal and digital fiction cannot erase. The chair does not await a body. It has already received one.</p>
     </div>
   </div>
 
@@ -322,21 +324,22 @@ footer{max-width:1160px;margin:0 auto;padding:52px 40px 0;
   <!-- 05 VIDEO -->
   <div class="row">
     <div>
-      <div class="vs" onclick="openLB('video.jpg','Fig. 05 — Video (still frame) · MP4 looped · Tested on 60″ display')">
-        <img src="video.jpg" alt="Video still">
-        <div class="vov"><div class="vbtn">▶</div></div>
+      <div class="vwrap">
+        <iframe src="https://player.vimeo.com/video/1189501800?loop=1&title=0&byline=0&portrait=0&color=a8c060"
+                frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+                style="position:absolute;top:0;left:0;width:100%;height:100%"></iframe>
       </div>
-      <p class="fig">Fig. 05 — Video (looped) · Still frame</p>
+      <p class="fig">Fig. 05 — Corpus Solus (Face 13) · MP4, looped · Vimeo</p>
     </div>
     <div class="info">
       <span class="wn">RENDERED · 05</span>
-      <h3 class="wt">Untitled<small>(Video, MP4 Looped)</small></h3>
+      <h3 class="wt">Corpus Solus<small>(Face 13)</small></h3>
       <div class="specs">
         <div class="sp"><span class="sl">Format</span><span class="sv">MP4, looped</span></div>
         <div class="sp"><span class="sl">Display</span><span class="sv">Any monitor · Tested at 60″</span></div>
         <div class="sp"><span class="sl">Date</span><span class="sv">2026</span></div>
       </div>
-      <p class="wnote">A face recorded in the private act of orgasm — the body's glitch, the moment flesh exceeds its own architecture. The face dissolves: not into abstraction but into involuntary sensation, the social mask suspended. What the digital interface promises and structurally forecloses, the body enacts alone. The loop holds what cannot be held. Played on any screen. Witnessed by no one.</p>
+      <p class="wnote">A face recorded in the private act of orgasm — the body's glitch, the moment flesh exceeds its own architecture. The face dissolves: not into abstraction but into involuntary sensation, the social mask suspended. What the digital interface promises and structurally forecloses, the body enacts alone. The counterpart to <em>Corpus Nullius</em>: where the chair holds absence, this holds the act. The loop holds what cannot be held. Played on any screen. Witnessed by no one.</p>
     </div>
   </div>
 
