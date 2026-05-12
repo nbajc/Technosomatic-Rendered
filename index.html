@@ -8,55 +8,63 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --k:#000;--w:#f0ede6;--g:#a8c060;--d:#777770;--r:#1c1c1c;
-  --mono:'Share Tech Mono','Courier New',monospace;
-  --serif:'IM Fell English',Georgia,serif;
-  --type:'Courier Prime',monospace;
+--k:#000;--w:#f0ede6;--g:#a8c060;--d:#777770;--r:#1c1c1c;
+--mono:'Share Tech Mono','Courier New',monospace;
+--serif:'IM Fell English',Georgia,serif;
+--type:'Courier Prime',monospace;
 }
 html{scroll-behavior:smooth}
 body{background:var(--k);color:var(--w);font-family:var(--mono);font-size:13px;line-height:1.6;cursor:crosshair}
 
 /* LIGHTBOX */
 #lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.96);z-index:999;
-  flex-direction:column;align-items:center;justify-content:center;gap:12px}
+flex-direction:column;align-items:center;justify-content:center;gap:12px}
 #lb.on{display:flex}
 #lb img{max-width:90vw;max-height:84vh;object-fit:contain}
 #lb p{font-size:10px;color:var(--d);letter-spacing:.12em;font-style:italic}
 #lbx{position:fixed;top:22px;right:30px;background:none;border:none;color:var(--d);
-  font:11px/1 var(--mono);cursor:crosshair;letter-spacing:.15em;transition:color .2s}
+font:11px/1 var(--mono);cursor:crosshair;letter-spacing:.15em;transition:color .2s}
 #lbx:hover{color:var(--g)}
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;
-  justify-content:space-between;align-items:center;padding:13px 40px;
-  border-bottom:1px solid var(--r);background:rgba(0,0,0,.93);backdrop-filter:blur(6px)}
+justify-content:space-between;align-items:center;padding:13px 40px;
+border-bottom:1px solid var(--r);background:rgba(0,0,0,.93);backdrop-filter:blur(6px)}
 .nl{font-size:10px;color:var(--d);letter-spacing:.18em;text-transform:uppercase}
 .dot{display:inline-block;width:5px;height:5px;background:var(--g);border-radius:50%;
-  margin-right:7px;animation:blink 2.5s infinite}
+margin-right:7px;animation:blink 2.5s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.15}}
 .nr{display:flex;gap:26px;list-style:none}
 .nr a{color:var(--d);text-decoration:none;font-size:10px;letter-spacing:.14em;transition:color .2s}
 .nr a:hover{color:var(--g)}
 
-/* HERO */
+/* HERO — white to black gradient */
 #hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;
-  justify-content:center;padding:110px 40px 80px;border-bottom:1px solid var(--r);
-  position:relative;overflow:hidden}
+justify-content:center;padding:110px 40px 80px;border-bottom:1px solid var(--r);
+position:relative;overflow:hidden;
+background:linear-gradient(to bottom,#ffffff 0%,#f5f2eb 22%,#181818 52%,#000000 80%)}
+
 .hgrid{position:absolute;inset:0;pointer-events:none;
-  background-image:linear-gradient(rgba(255,255,255,.016) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.016) 1px,transparent 1px);
-  background-size:60px 60px}
-.hlogo{width:min(420px,76vw);mix-blend-mode:screen;
-  animation:up 1.4s cubic-bezier(.16,1,.3,1) both}
+background-image:linear-gradient(rgba(0,0,0,.045) 1px,transparent 1px),
+linear-gradient(90deg,rgba(0,0,0,.045) 1px,transparent 1px);
+background-size:60px 60px}
+
+/* Logo sits in the white zone — invert to black so it's legible on white */
+.hlogo{width:min(420px,76vw);
+mix-blend-mode:normal;
+filter:brightness(0);
+animation:up 1.4s cubic-bezier(.16,1,.3,1) both}
+
 @keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
 .htxt{margin-top:42px;text-align:center;animation:up 1.4s cubic-bezier(.16,1,.3,1) .22s both}
 .htxt h1{font-family:var(--mono);font-size:clamp(18px,3.2vw,34px);font-weight:normal;
-  letter-spacing:.28em;text-transform:uppercase}
+letter-spacing:.28em;text-transform:uppercase}
 .htxt h1 em{font-style:normal;color:var(--g)}
 .htxt p{margin-top:9px;font-size:10px;color:var(--d);letter-spacing:.22em;text-transform:uppercase}
 .hmeta{margin-top:50px;display:grid;grid-template-columns:repeat(3,1fr);
-  width:min(520px,88vw);border:1px solid var(--r);
-  animation:up 1.4s cubic-bezier(.16,1,.3,1) .42s both}
+width:min(520px,88vw);border:1px solid var(--r);
+animation:up 1.4s cubic-bezier(.16,1,.3,1) .42s both}
 .hm{padding:13px 16px;border-right:1px solid var(--r);font-size:10px;color:var(--d);letter-spacing:.09em}
 .hm:last-child{border-right:none}
 .hm strong{display:block;color:var(--w);font-size:11px;margin-bottom:3px}
@@ -64,7 +72,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;
 /* WRAP */
 .W{max-width:1160px;margin:0 auto;padding:76px 40px;border-bottom:1px solid var(--r)}
 .sh{display:flex;align-items:baseline;gap:16px;margin-bottom:52px;
-  padding-bottom:16px;border-bottom:1px solid var(--r)}
+padding-bottom:16px;border-bottom:1px solid var(--r)}
 .sn{font-size:10px;color:var(--d);letter-spacing:.18em}
 .st{font-family:var(--serif);font-size:21px;font-weight:normal;font-style:italic}
 
@@ -74,17 +82,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;
 .prose em{font-style:italic;color:var(--w)}
 
 /* WORK ROW */
-.row{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-bottom:88px;align-items:start}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-bottom:48px;align-items:start}
 .row.flip{direction:rtl}
 .row.flip>*{direction:ltr}
 
 /* IMAGE PANEL */
 .ip{position:relative;cursor:zoom-in;overflow:hidden;background:#040404}
 .ip img{width:100%;display:block;filter:saturate(.9) contrast(1.04);
-  transition:transform .5s cubic-bezier(.16,1,.3,1),filter .4s}
+transition:transform .5s cubic-bezier(.16,1,.3,1),filter .4s}
 .ip:hover img{transform:scale(1.025);filter:saturate(1.05) contrast(1.08)}
 .ip::after{content:'⊕';position:absolute;top:10px;right:12px;font-size:17px;
-  color:rgba(255,255,255,.2);opacity:0;transition:opacity .3s}
+color:rgba(255,255,255,.2);opacity:0;transition:opacity .3s}
 .ip:hover::after{opacity:1}
 .fig{margin-top:8px;font-size:10px;color:var(--d);letter-spacing:.1em;font-style:italic}
 
@@ -92,7 +100,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;
 .info{padding-top:2px}
 .wn{font-size:10px;color:var(--g);letter-spacing:.22em;margin-bottom:13px;display:block}
 .wt{font-family:var(--serif);font-size:clamp(19px,2.6vw,27px);font-weight:normal;
-  font-style:italic;line-height:1.3;margin-bottom:24px}
+font-style:italic;line-height:1.3;margin-bottom:24px}
 .wt small{font-size:.7em;color:var(--d);display:block;margin-top:3px}
 .specs{border:1px solid var(--r);margin-bottom:24px}
 .sp{display:flex;padding:9px 15px;border-bottom:1px solid var(--r);font-size:11px;gap:10px}
@@ -100,6 +108,31 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;
 .sl{width:90px;color:var(--d);letter-spacing:.09em;text-transform:uppercase;flex-shrink:0}
 .sv{color:var(--w)}
 .wnote{font-family:var(--type);font-size:13px;color:#7a7870;line-height:1.85;font-style:italic}
+
+/* CHAIR GALLERY GRID */
+.chair-gallery-wrap{margin-bottom:52px}
+.gallery-divider{font-size:9px;color:var(--d);letter-spacing:.22em;text-transform:uppercase;
+margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--r)}
+.chair-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}
+.chair-grid .ci{cursor:zoom-in;overflow:hidden;background:#020202;position:relative}
+.chair-grid .ci img{width:100%;display:block;
+filter:saturate(.88) contrast(1.02);
+transition:transform .45s cubic-bezier(.16,1,.3,1),filter .35s}
+.chair-grid .ci:hover img{transform:scale(1.04);filter:saturate(1) contrast(1.06)}
+.chair-grid .ci::after{content:'⊕';position:absolute;top:7px;right:9px;font-size:13px;
+color:rgba(255,255,255,.3);opacity:0;transition:opacity .25s}
+.chair-grid .ci:hover::after{opacity:1}
+
+/* CORPUS NULLUM STATEMENT BLOCK */
+.cn-statement-wrap{border:1px solid var(--r);padding:44px;margin-bottom:80px}
+.cn-stmt-header{font-size:9px;color:var(--g);letter-spacing:.22em;text-transform:uppercase;
+margin-bottom:28px;padding-bottom:14px;border-bottom:1px solid var(--r)}
+.cn-stmt-body{columns:2;column-gap:60px;font-family:var(--type);font-size:13.5px;
+line-height:2.05;color:#b0aca4}
+.cn-stmt-body p+p{margin-top:16px;break-inside:avoid}
+.cn-stmt-body em{color:var(--w);font-style:italic}
+.cn-gratitude{margin-top:32px;padding-top:22px;border-top:1px solid var(--r);
+font-family:var(--type);font-size:12px;color:var(--d);font-style:italic;line-height:1.8}
 
 /* HOLOSCENE */
 .hv-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-bottom:88px}
@@ -114,32 +147,54 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;
 
 /* VIDEO */
 .vwrap{position:relative;overflow:hidden;background:#020202;padding-top:56.25%}
-.vwrap video{width:100%;height:100%;display:block;object-fit:cover}
-.vs{position:relative;cursor:pointer;overflow:hidden;background:#020202}
-.vs img{width:100%;display:block;filter:saturate(.8)}
-.vov{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-  background:rgba(0,0,0,.38);transition:background .3s}
-.vwrap:hover .vov,.vs:hover .vov{background:rgba(0,0,0,.1)}
-.vbtn{width:52px;height:52px;border:1px solid rgba(255,255,255,.32);border-radius:50%;
-  display:flex;align-items:center;justify-content:center;font-size:16px;
-  color:rgba(255,255,255,.55);transition:all .3s}
-.vwrap:hover .vbtn,.vs:hover .vbtn{border-color:var(--g);color:var(--g)}
+.vwrap iframe{position:absolute;top:0;left:0;width:100%;height:100%}
 
 /* RULE */
-.dash{display:flex;align-items:center;gap:12px;margin:48px 0;
-  color:var(--r);font-size:10px;letter-spacing:.18em}
+.dash{display:flex;align-items:center;gap:12px;margin:52px 0;
+color:var(--r);font-size:10px;letter-spacing:.18em}
 .dash::before,.dash::after{content:'';flex:1;height:1px;background:var(--r)}
 
-/* FOOTER */
-footer{max-width:1160px;margin:0 auto;padding:52px 40px 0;
-  display:grid;grid-template-columns:repeat(3,1fr);gap:36px;border-top:1px solid var(--r)}
-.fc h4{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--d);margin-bottom:13px}
-.fc p,.fc a{display:block;font-size:12px;color:#4a4a48;text-decoration:none;
-  margin-bottom:4px;transition:color .2s}
-.fc a:hover{color:var(--g)}
-.fb{max-width:1160px;margin:36px auto 0;padding:18px 40px 36px;
-  display:flex;justify-content:space-between;font-size:9px;color:#232320;
-  letter-spacing:.1em;border-top:1px solid var(--r)}
+/* BIO SECTION */
+.bio-images{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:52px}
+.bio-img-panel{overflow:hidden;background:#020202;position:relative}
+.bio-img-panel img{width:100%;display:block;
+filter:saturate(.88) contrast(1.04);
+transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.bio-img-panel:hover img{transform:scale(1.02)}
+.bio-img-cap{margin-top:7px;font-size:10px;color:var(--d);letter-spacing:.1em;font-style:italic}
+.bio-text-block{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.bio-grid{display:grid;grid-template-columns:300px 1fr;gap:72px;align-items:start}
+.bio-photo-wrap{position:sticky;top:90px}
+.bio-photo-wrap img{width:100%;display:block;filter:saturate(.85) contrast(1.05)}
+.bio-photo-placeholder{width:100%;aspect-ratio:3/4;background:#0e0e0e;
+border:1px solid var(--r);
+display:flex;align-items:center;justify-content:center;
+font-size:9px;color:#333;letter-spacing:.2em;text-transform:uppercase}
+.bio-label{font-size:9px;color:var(--g);letter-spacing:.22em;text-transform:uppercase;
+margin-bottom:16px;display:block}
+.bio-name{font-family:var(--serif);font-size:clamp(24px,3vw,34px);font-weight:normal;
+font-style:italic;margin-bottom:22px;line-height:1.2}
+.bio-rule{height:1px;background:var(--r);margin-bottom:28px}
+.bio-prose{font-family:var(--type);font-size:14px;line-height:2;color:#bfbcb5}
+.bio-prose p+p{margin-top:16px}
+.bio-prose em{color:var(--w);font-style:italic}
+.bio-emails{margin-top:28px;padding-top:20px;border-top:1px solid var(--r)}
+.bio-emails a{display:block;font-size:12px;font-family:var(--mono);color:var(--d);
+text-decoration:none;margin-bottom:5px;letter-spacing:.06em;transition:color .2s}
+.bio-emails a:hover{color:var(--g)}
+
+.bio-links{display:flex;flex-direction:column;gap:0}
+.bio-site-link{display:grid;grid-template-columns:28px 1fr 16px;gap:10px;
+align-items:start;padding:14px 0;border-bottom:1px solid var(--r);
+text-decoration:none;color:var(--w);transition:color .2s}
+.bio-site-link:first-child{border-top:1px solid var(--r)}
+.bio-site-link:hover{color:var(--g)}
+.bio-site-link:hover .bsl-arr{color:var(--g)}
+.bsl-num{font-size:9px;color:var(--d);letter-spacing:.1em;padding-top:2px}
+.bsl-text{font-family:var(--type);font-size:13px;line-height:1.4}
+.bsl-text em{display:block;font-size:11px;color:var(--d);font-style:normal;
+letter-spacing:.04em;margin-top:3px}
+.bsl-arr{font-size:13px;color:var(--d);text-align:right;padding-top:2px;transition:color .2s}
 
 /* CONTACT */
 .cg{display:flex;gap:56px;flex-wrap:wrap}
@@ -147,19 +202,38 @@ footer{max-width:1160px;margin:0 auto;padding:52px 40px 0;
 .cb p{font-size:13px;font-family:var(--type);color:var(--w);margin-bottom:3px}
 .cb .sub{font-size:11px;color:var(--d)}
 .cb a{font-size:13px;font-family:var(--type);color:var(--w);text-decoration:none;
-  display:block;margin-bottom:4px;transition:color .2s}
+display:block;margin-bottom:4px;transition:color .2s}
 .cb a:hover{color:var(--g)}
 
+/* FOOTER */
+footer{max-width:1160px;margin:0 auto;padding:52px 40px 0;
+display:grid;grid-template-columns:repeat(3,1fr);gap:36px;border-top:1px solid var(--r)}
+.fc h4{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--d);margin-bottom:13px}
+.fc p,.fc a{display:block;font-size:12px;color:#4a4a48;text-decoration:none;
+margin-bottom:4px;transition:color .2s}
+.fc a:hover{color:var(--g)}
+.fb{max-width:1160px;margin:36px auto 0;padding:18px 40px 36px;
+display:flex;justify-content:space-between;font-size:9px;color:#232320;
+letter-spacing:.1em;border-top:1px solid var(--r)}
+
 @media(max-width:768px){
-  nav{padding:11px 18px}.nr{display:none}
-  .W{padding:52px 18px}
-  .row,.hv-grid{grid-template-columns:1fr;gap:28px}
-  .row.flip{direction:ltr}
-  .hmeta{grid-template-columns:1fr}
-  .hm{border-right:none;border-bottom:1px solid var(--r)}
-  footer{grid-template-columns:1fr;padding:36px 18px 0}
-  .fb{flex-direction:column;gap:5px;padding:18px}
-  .cg{gap:36px}
+nav{padding:11px 18px}.nr{display:none}
+.W{padding:52px 18px}
+.row,.hv-grid{grid-template-columns:1fr;gap:28px}
+.row.flip{direction:ltr}
+.hmeta{grid-template-columns:1fr}
+.hm{border-right:none;border-bottom:1px solid var(--r)}
+.hm:last-child{border-bottom:none}
+footer{grid-template-columns:1fr;padding:36px 18px 0}
+.fb{flex-direction:column;gap:5px;padding:18px}
+.cg{gap:36px}
+.chair-grid{grid-template-columns:repeat(2,1fr)}
+.cn-stmt-body{columns:1}
+.bio-grid{grid-template-columns:1fr;gap:36px}
+.bio-photo-wrap{position:static}
+.cn-statement-wrap{padding:24px}
+.bio-images{grid-template-columns:1fr}
+.bio-text-block{grid-template-columns:1fr;gap:40px}
 }
 </style>
 </head>
@@ -176,7 +250,8 @@ footer{max-width:1160px;margin:0 auto;padding:52px 40px 0;
   <ul class="nr">
     <li><a href="#works">00. Works</a></li>
     <li><a href="#statement">01. Statement</a></li>
-    <li><a href="#contact">02. Contact</a></li>
+    <li><a href="#bio">02. Bio</a></li>
+    <li><a href="#contact">03. Contact</a></li>
     <li><a href="https://technosomaticarchitecture.vercel.app" target="_blank">← Main Site</a></li>
   </ul>
 </nav>
@@ -196,178 +271,290 @@ footer{max-width:1160px;margin:0 auto;padding:52px 40px 0;
 </div>
 
 <section id="statement">
-<div class="W">
-  <div class="sh"><span class="sn">01.</span><h2 class="st">On Rendering</h2></div>
-  <div class="prose">
-    <p>To render is to translate, to process, to extract. In digital production, rendering is the final act — the moment raw data becomes visible form. In the abattoir, rendering is the reduction of flesh to its constituent materials. <em>Technosomatic—Rendered</em> inhabits both definitions simultaneously.</p>
-    <p>The body in this work has been passed through a machine — photographed, processed, etched, printed, stretched onto canvas, then touched again by hand. What returns is not the original body and not pure image, but something in between: a body that bears the mark of having been processed, of having survived its own translation.</p>
-    <p>The crosshatched skin, the etching that reads as geological strata, the acid ground that refuses to recede — these are not stylistic choices. They are the record of a procedure. <em>The body rendered is a body that has undergone something.</em></p>
+  <div class="W">
+    <div class="sh"><span class="sn">01.</span><h2 class="st">On Rendering</h2></div>
+    <div class="prose">
+      <p>To render is to translate, to process, to extract. In digital production, rendering is the final act — the moment raw data becomes visible form. In the abattoir, rendering is the reduction of flesh to its constituent materials. <em>Technosomatic—Rendered</em> inhabits both definitions simultaneously.</p>
+      <p>The body in this work has been passed through a machine — photographed, processed, etched, printed, stretched onto canvas, then touched again by hand. What returns is not the original body and not pure image, but something in between: a body that bears the mark of having been processed, of having survived its own translation.</p>
+      <p>The crosshatched skin, the etching that reads as geological strata, the acid ground that refuses to recede — these are not stylistic choices. They are the record of a procedure. <em>The body rendered is a body that has undergone something.</em></p>
+    </div>
   </div>
-</div>
 </section>
 
 <section id="works">
-<div class="W">
-  <div class="sh"><span class="sn">00.</span><h2 class="st">Works</h2></div>
+  <div class="W">
+    <div class="sh"><span class="sn">00.</span><h2 class="st">Works</h2></div>
 
-  <!-- 01 -->
-  <div class="row">
-    <div>
-      <div class="ip" onclick="openLB('corpus_nullius.jpg','Fig. 01 — Corpus Nullius (Phantom Impression) · Found object, painted and stained · 38″d × 34″w × 36″h')">
-        <img src="corpus_nullius.jpg" alt="Corpus Nullius (Phantom Impression)">
+    <!-- 01 CORPUS NULLUM — featured view + info -->
+    <div class="row">
+      <div>
+        <div class="ip" onclick="openLB('5.png','CORPUS NULLUM (Phantom Imprint) — Direct front · Found object, painted and stained · Chair, 2026')">
+          <img src="5.png" alt="Corpus Nullum — Phantom Imprint, front view">
+        </div>
+        <p class="fig">Fig. 01 — Corpus Nullum (Phantom Imprint) · Front</p>
       </div>
-      <p class="fig">Fig. 01 — Corpus Nullius (Phantom Impression)</p>
+      <div class="info">
+        <span class="wn">RENDERED · 01</span>
+        <h3 class="wt">Corpus Nullum<small>(Phantom Imprint)</small></h3>
+        <div class="specs">
+          <div class="sp"><span class="sl">Type</span><span class="sv">Spatial Installation</span></div>
+          <div class="sp"><span class="sl">Medium</span><span class="sv">Found object, painted and stained</span></div>
+          <div class="sp"><span class="sl">Dimensions</span><span class="sv">38″d × 34″w × 36″h</span></div>
+          <div class="sp"><span class="sl">Date</span><span class="sv">Chair, 2026</span></div>
+          <div class="sp"><span class="sl">Series</span><span class="sv">Technosomatic — Rendered</span></div>
+          <div class="sp"><span class="sl">Venue</span><span class="sv">Animamus Art Salon / Not There Gallery</span></div>
+        </div>
+        <p class="wnote">The chair begins as a found object — Louis XV form, beige, pompous, insisting on a dignity it never earned. It belonged everywhere and declared nothing. It belonged, specifically, to <em>no body</em>. The body is not visible from any single position.</p>
+      </div>
     </div>
-    <div class="info">
-      <span class="wn">RENDERED · 01</span>
-      <h3 class="wt">Corpus Nullius<small>(Phantom Impression)</small></h3>
-      <div class="specs">
-        <div class="sp"><span class="sl">Medium</span><span class="sv">Found object, painted and stained</span></div>
-        <div class="sp"><span class="sl">Dimensions</span><span class="sv">38″d × 34″w × 36″h</span></div>
-        <div class="sp"><span class="sl">Date</span><span class="sv">2026</span></div>
+
+    <!-- ALL 12 CHAIR IMAGES — documentation grid -->
+    <div class="chair-gallery-wrap">
+      <div class="gallery-divider">All Views — Documentation</div>
+      <div class="chair-grid">
+        <div class="ci" onclick="openLB('1.png','Corpus Nullum — View 01')"><img src="1.png" alt="View 01 — 3/4 front left"></div>
+        <div class="ci" onclick="openLB('2.png','Corpus Nullum — View 02')"><img src="2.png" alt="View 02 — 3/4 front right"></div>
+        <div class="ci" onclick="openLB('3.png','Corpus Nullum — View 03')"><img src="3.png" alt="View 03 — front right"></div>
+        <div class="ci" onclick="openLB('4.png','Corpus Nullum — View 04 · Direct front')"><img src="4.png" alt="View 04 — direct front"></div>
+        <div class="ci" onclick="openLB('5.png','Corpus Nullum — View 05 · Front')"><img src="5.png" alt="View 05 — front"></div>
+        <div class="ci" onclick="openLB('6.png','Corpus Nullum — View 06')"><img src="6.png" alt="View 06 — front left"></div>
+        <div class="ci" onclick="openLB('7.png','Corpus Nullum — View 07 · Side rear left')"><img src="7.png" alt="View 07 — side rear left"></div>
+        <div class="ci" onclick="openLB('8.png','Corpus Nullum — View 08 · Side rear right')"><img src="8.png" alt="View 08 — side rear right"></div>
+        <div class="ci" onclick="openLB('9.png','Corpus Nullum — View 09 · Rear')"><img src="9.png" alt="View 09 — rear"></div>
+        <div class="ci" onclick="openLB('10.png','Corpus Nullum — View 10 · Side profile')"><img src="10.png" alt="View 10 — side profile"></div>
+        <div class="ci" onclick="openLB('11.png','Corpus Nullum — View 11 · Side profile')"><img src="11.png" alt="View 11 — side profile"></div>
+        <div class="ci" onclick="openLB('12.png','Corpus Nullum — View 12')"><img src="12.png" alt="View 12"></div>
       </div>
-      <p class="wnote"><em>Terra Nullius</em> was the legal fiction — land declared belonging to no one so it could be taken. <em>Corpus Nullius</em> is the body declared absent. But the marks remain: gold on the backrest, red across the seat, green inverted on the cushion back — anatomical fragments distributed across the upholstery's damask ground. The body has been processed out of the space. What persists is its data: the phantom impression, the somatic residue that the legal and digital fiction cannot erase. The chair does not await a body. It has already received one.</p>
+    </div>
+
+    <!-- FULL ARTIST STATEMENT -->
+    <div class="cn-statement-wrap">
+      <div class="cn-stmt-header">Artist Statement — Corpus Nullum</div>
+      <div class="cn-stmt-body">
+        <p>The chair begins as a found object — Louis XV form, beige, pompous, insisting on a dignity it never earned. Upholstered in the color of aspiration and invisibility, it belonged everywhere and declared nothing. It belonged, specifically, to no body.</p>
+        <p>It was painted dark grey.</p>
+        <p>That act is not preparation for the work. It is the work's first gesture. The original surface — domestic, self-effacing, designed to recede — is erased and replaced with something that refuses invisibility. What the chair was used for, what bodies did in it, what it absorbed and retained across its life as a functional object, becomes legible only after the surface that normalized it is removed. The painting exposes what the beige concealed: that furniture is not neutral. That every chair holds the memory of occupation.</p>
+        <p>Onto this darkened ground, the full map of a body has been distributed without the body being present.</p>
+        <p>The marks are literal and specific: gold phallus on the backrest, gilded breasts on the front corner, red heat marks and drip on the front apron, green inverted figure climbing the backrest. Each mark corresponds to a body part, a pressure point, a moment of contact. Assembled together they constitute a complete figure — disassembled across the object, visible only to a viewer who moves around it.</p>
+        <p>These are not marks from a single occupation, nor from a simultaneous presence. They are phantom imprints — somatic residues left by full figures across time, accumulated on the same surface without necessarily ever sharing the same space. There is no such thing as a sexual relationship. What remains is its evidence.</p>
+        <p>The damask pattern of the upholstery presses through the paint rather than disappearing beneath it. The decorative history of the object and the marks of occupation exist on the same surface simultaneously. Neither cancels the other. The chair's original identity survives its own erasure.</p>
+        <p>The work belongs to <em>Technosomatic — Rendered</em>, a series investigating the body as it passes through processes of translation — digital, material, photographic — and returns altered. In <em>Corpus Nullum</em> the process is reversal: rather than the body being rendered by technology, the body renders the object. The chair receives what the body leaves. What remains is not a portrait but an index — the somatic data that the digital fiction cannot erase, the phantom impression of an absence that was once fully, physically present.</p>
+        <p>The chair should be approached from all sides. The body is not visible from any single position.</p>
+      </div>
+      <div class="cn-gratitude">With sincere gratitude to my collaborator Declan James Jones, whose presence, trust, and creative engagement over 2.5 years made this body of work possible. He is in it — literally and otherwise.</div>
+    </div>
+
+    <div class="dash">—</div>
+
+    <!-- 02 TRIPTYCH CORPUS -->
+    <div class="row flip" style="margin-bottom:88px">
+      <div class="info">
+        <span class="wn">RENDERED · 02</span>
+        <h3 class="wt">Triptych Corpus<small>(I, II, III)</small></h3>
+        <div class="specs">
+          <div class="sp"><span class="sl">Medium</span><span class="sv">Digital print on canvas, painted over areas</span></div>
+          <div class="sp"><span class="sl">Dimensions</span><span class="sv">30″h × 120″w</span></div>
+          <div class="sp"><span class="sl">Date</span><span class="sv">2026</span></div>
+        </div>
+        <p class="wnote">Three states of the same body. The chartreuse ground — acid, artificial, hostile — refuses to recede. The etching texture denies the flesh its softness while making it more present. Not heroic nudes. The canvas receives ink, then receives paint: a double translation that marks the body twice. Three poses, three exposures — the body as specimen under a ground that will not recede into neutrality.</p>
+      </div>
+      <div>
+        <div class="ip" onclick="openLB('tryptic.jpg','Fig. 02 — Triptych Corpus (I, II, III) · 30″h × 120″w · Digital print on canvas with painted over areas')">
+          <img src="tryptic.jpg" alt="Triptych Corpus">
+        </div>
+        <p class="fig">Fig. 02 — Triptych Corpus (I, II, III)</p>
+      </div>
+    </div>
+
+    <div class="dash">—</div>
+
+    <!-- 03 MALE ODALISQUE -->
+    <div class="row" style="margin-bottom:88px">
+      <div>
+        <div class="ip" onclick="openLB('odalisque.jpg','Fig. 03 — Male Odalisque · 29″h × 26″w · Digital print on canvas with painted over areas')">
+          <img src="odalisque.jpg" alt="Male Odalisque">
+        </div>
+        <p class="fig">Fig. 03 — Male Odalisque</p>
+      </div>
+      <div class="info">
+        <span class="wn">RENDERED · 03</span>
+        <h3 class="wt">Male Odalisque</h3>
+        <div class="specs">
+          <div class="sp"><span class="sl">Medium</span><span class="sv">Digital print on canvas, painted over areas</span></div>
+          <div class="sp"><span class="sl">Dimensions</span><span class="sv">29″h × 26″w</span></div>
+          <div class="sp"><span class="sl">Date</span><span class="sv">2026</span></div>
+        </div>
+        <p class="wnote">The odalisque as historically passive, available, displayed — inverted by the female gaze that produces the image. Amber and ochre push the body toward terracotta, something fired. The architectural cold of the background reads against the body's radiated warmth. The pose is simultaneously vulnerable and unselfconscious. The glasses insist on a particular Tuesday afternoon. That specificity is the work's sharpest edge.</p>
+      </div>
+    </div>
+
+    <div class="dash">—</div>
+
+    <!-- 04 DESCENDING DATA (HOLOSCENE) -->
+    <div class="hv-grid">
+      <div>
+        <div class="hv-main">
+          <img id="hv-img" src="nomad11.png" alt="Descending Data: Portrait of an Ego">
+        </div>
+        <div class="hv-thumbs">
+          <div class="hv-t on" onclick="setHV(this,'nomad11.png')">
+            <img src="nomad11.png" alt="Front">
+            <div class="hv-lbl">FRONT</div>
+          </div>
+          <div class="hv-t" onclick="setHV(this,'nomad-a.png')">
+            <img src="nomad-a.png" alt="Rotational">
+            <div class="hv-lbl">ROTATE</div>
+          </div>
+          <div class="hv-t" onclick="setHV(this,'nomad-b.png')">
+            <img src="nomad-b.png" alt="Lateral">
+            <div class="hv-lbl">LATERAL</div>
+          </div>
+          <div class="hv-t" onclick="setHV(this,'nomad-c.png')">
+            <img src="nomad-c.png" alt="Rear">
+            <div class="hv-lbl">REAR</div>
+          </div>
+          <div class="hv-t" onclick="setHV(this,'holo-screen.png')">
+            <img src="holo-screen.png" alt="Model">
+            <div class="hv-lbl">MODEL</div>
+          </div>
+        </div>
+        <p class="fig" style="margin-top:10px" id="hv-cap">Fig. 04 — Descending Data · Front view &nbsp;·&nbsp; Click to rotate</p>
+      </div>
+      <div class="info">
+        <span class="wn">RENDERED · 04</span>
+        <h3 class="wt">Descending Data:<small>Portrait of an Ego (10 Slices)</small></h3>
+        <div class="specs">
+          <div class="sp"><span class="sl">Medium</span><span class="sv">Plexiglass, clear mylar print, edge-lit LED</span></div>
+          <div class="sp"><span class="sl">Dimensions</span><span class="sv">36″h + 6″ box (42″h total) × 24″w × 6″d</span></div>
+          <div class="sp"><span class="sl">Structure</span><span class="sv">10 slices · 2″ air gaps · COB LED stand</span></div>
+          <div class="sp"><span class="sl">Date</span><span class="sv">2026</span></div>
+        </div>
+        <p class="wnote">The ego as holographic structure — present, luminous, entirely dependent on a light source for its existence. Ten architectural slices of the figure, each printed on transparent mylar laminated to plexiglass, stacked with precision air gaps. The LED base fires upward through the panel edges; light propagates via total internal reflection until it strikes the printed ink, which glows. The figure does not project outward. It illuminates from within its own material. Remove the power and the portrait disappears.<br><br><span style="color:var(--d);font-size:11px">Click thumbnails to rotate viewing angle.</span></p>
+      </div>
+    </div>
+
+    <div class="dash">—</div>
+
+    <!-- 05 CORPUS SOLUS VIDEO -->
+    <div class="row">
+      <div>
+        <div class="vwrap">
+          <iframe src="https://player.vimeo.com/video/1189501800?loop=1&title=0&byline=0&portrait=0&color=a8c060"
+            frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <p class="fig">Fig. 05 — Corpus Solus (Face 13) · MP4, looped · Vimeo</p>
+      </div>
+      <div class="info">
+        <span class="wn">RENDERED · 05</span>
+        <h3 class="wt">Corpus Solus<small>(Face 13)</small></h3>
+        <div class="specs">
+          <div class="sp"><span class="sl">Format</span><span class="sv">MP4, looped</span></div>
+          <div class="sp"><span class="sl">Display</span><span class="sv">Any monitor · Tested at 60″</span></div>
+          <div class="sp"><span class="sl">Date</span><span class="sv">2026</span></div>
+        </div>
+        <p class="wnote">A face recorded in the private act of orgasm — the body's glitch, the moment flesh exceeds its own architecture. The face dissolves: not into abstraction but into involuntary sensation, the social mask suspended. What the digital interface promises and structurally forecloses, the body enacts alone. The counterpart to <em>Corpus Nullum</em>: where the chair holds absence, this holds the act. The loop holds what cannot be held. Played on any screen. Witnessed by no one.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- BIO SECTION -->
+<section id="bio">
+  <div class="W">
+    <div class="sh"><span class="sn">02.</span><h2 class="st">Artist</h2></div>
+
+    <!-- Chair + Portrait side by side -->
+    <div class="bio-images">
+      <div class="bio-img-panel" onclick="openLB('1.png','Corpus Nullum (Phantom Imprint) · 2026')" style="cursor:zoom-in">
+        <img src="1.png" alt="Corpus Nullum — Phantom Imprint">
+        <p class="bio-img-cap">Corpus Nullum (Phantom Imprint) · 2026</p>
+      </div>
+      <div class="bio-img-panel">
+        <img src="artist-photo.jpg" alt="Natasha Bajc">
+        <p class="bio-img-cap">Natasha Bajc</p>
+      </div>
+    </div>
+
+    <!-- Bio text + websites in two columns -->
+    <div class="bio-text-block">
+      <div>
+        <span class="bio-label">Artist Bio</span>
+        <h3 class="bio-name">Natasha Bajc</h3>
+        <div class="bio-rule"></div>
+        <div class="bio-prose">
+          <p>Natasha Bajc is a Serbian-born, Los Angeles-based artist, architect, and researcher working at the intersection of the body, technology, and digital process. Her practice operates under the framework of Technosomatic Architecture — an inquiry into how the body is translated, processed, and returned altered through digital and material systems.</p>
+          <p>Bajc holds advanced training in architecture and computer science and has taught at the collegiate level in Los Angeles, with affiliations including SCI-Arc, UCLA and USC. She is a founder of Nexus Hestia Technologies, where she develops research at the intersection of artificial intelligence and spatial practice. She gave one of the first TEDx talks in Belgrade in 2010, and participated in the Venice Biennale of Architecture in 2018.</p>
+          <p>Her current body of work, <em>Technosomatic — Rendered</em>, spans digital print on canvas, found object sculpture, holographic installation, and video. The series has been presented through Animamus Art Salon.</p>
+          <p>Bajc lives and works in Los Angeles.</p>
+        </div>
+        <div class="bio-emails">
+          <a href="mailto:natasha@natashabajc.com">natasha@natashabajc.com</a>
+          <a href="mailto:natasha.bajc@nexushestia.com">natasha.bajc@nexushestia.com</a>
+        </div>
+      </div>
+      <div>
+        <span class="bio-label">Websites</span>
+        <div class="bio-rule" style="margin-top:16px"></div>
+        <div class="bio-links">
+          <a href="https://technosomaticarchitecture.vercel.app/" target="_blank" class="bio-site-link">
+            <span class="bsl-num">01</span>
+            <span class="bsl-text">Technosomatic Architecture<em>Research framework · Main site</em></span>
+            <span class="bsl-arr">↗</span>
+          </a>
+          <a href="https://technosomatic-rendered.vercel.app" target="_blank" class="bio-site-link">
+            <span class="bsl-num">02</span>
+            <span class="bsl-text">Technosomatic — Rendered<em>Current exhibition</em></span>
+            <span class="bsl-arr">↗</span>
+          </a>
+          <a href="https://technosomaticreal.vercel.app/" target="_blank" class="bio-site-link">
+            <span class="bsl-num">03</span>
+            <span class="bsl-text">Technosomatic Real<em>Extended practice</em></span>
+            <span class="bsl-arr">↗</span>
+          </a>
+          <a href="https://technosomatic-holoscene.vercel.app/" target="_blank" class="bio-site-link">
+            <span class="bsl-num">04</span>
+            <span class="bsl-text">Descending Data: Portrait of an Ego<em>Holoscene installation</em></span>
+            <span class="bsl-arr">↗</span>
+          </a>
+          <a href="https://theloopofbeing.vercel.app/" target="_blank" class="bio-site-link">
+            <span class="bsl-num">05</span>
+            <span class="bsl-text">The Loop of Being<em>Project site</em></span>
+            <span class="bsl-arr">↗</span>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="dash">—</div>
-
-  <!-- 02 -->
-  <div class="row flip">
-    <div class="info">
-      <span class="wn">RENDERED · 02</span>
-      <h3 class="wt">Triptych Corpus<small>(I, II, III)</small></h3>
-      <div class="specs">
-        <div class="sp"><span class="sl">Medium</span><span class="sv">Digital print on canvas, painted over areas</span></div>
-        <div class="sp"><span class="sl">Dimensions</span><span class="sv">30″h × 120″w</span></div>
-        <div class="sp"><span class="sl">Date</span><span class="sv">2026</span></div>
-      </div>
-      <p class="wnote">Three states of the same body. The chartreuse ground — acid, artificial, hostile — refuses to recede. The etching texture denies the flesh its softness while making it more present. Not heroic nudes. The canvas receives ink, then receives paint: a double translation that marks the body twice. Three poses, three exposures — the body as specimen under a ground that will not recede into neutrality.</p>
-    </div>
-    <div>
-      <div class="ip" onclick="openLB('tryptic.jpg','Fig. 02 — Triptych Corpus (I, II, III) · 30″h × 120″w · Digital print on canvas with painted over areas')">
-        <img src="tryptic.jpg" alt="Triptych Corpus">
-      </div>
-      <p class="fig">Fig. 02 — Triptych Corpus (I, II, III)</p>
-    </div>
-  </div>
-
-  <div class="dash">—</div>
-
-  <!-- 03 -->
-  <div class="row">
-    <div>
-      <div class="ip" onclick="openLB('odalisque.jpg','Fig. 03 — Male Odalisque · 29″h × 26″w · Digital print on canvas with painted over areas')">
-        <img src="odalisque.jpg" alt="Male Odalisque">
-      </div>
-      <p class="fig">Fig. 03 — Male Odalisque</p>
-    </div>
-    <div class="info">
-      <span class="wn">RENDERED · 03</span>
-      <h3 class="wt">Male Odalisque</h3>
-      <div class="specs">
-        <div class="sp"><span class="sl">Medium</span><span class="sv">Digital print on canvas, painted over areas</span></div>
-        <div class="sp"><span class="sl">Dimensions</span><span class="sv">29″h × 26″w</span></div>
-        <div class="sp"><span class="sl">Date</span><span class="sv">2026</span></div>
-      </div>
-      <p class="wnote">The odalisque as historically passive, available, displayed — inverted by the female gaze that produces the image. Amber and ochre push the body toward terracotta, something fired. The architectural cold of the background reads against the body's radiated warmth. The pose is simultaneously vulnerable and unselfconscious. The glasses insist on a particular Tuesday afternoon. That specificity is the work's sharpest edge.</p>
-    </div>
-  </div>
-
-  <div class="dash">—</div>
-
-  <!-- 04 HOLOSCENE -->
-  <div class="hv-grid">
-    <div>
-      <div class="hv-main">
-        <img id="hv-img" src="nomad11.png" alt="Descending Data: Portrait of an Ego">
-      </div>
-      <div class="hv-thumbs">
-        <div class="hv-t on" onclick="setHV(this,'nomad11.png')">
-          <img src="nomad11.png" alt="Front">
-          <div class="hv-lbl">FRONT</div>
-        </div>
-        <div class="hv-t" onclick="setHV(this,'nomad-a.png')">
-          <img src="nomad-a.png" alt="Rotational">
-          <div class="hv-lbl">ROTATE</div>
-        </div>
-        <div class="hv-t" onclick="setHV(this,'nomad-b.png')">
-          <img src="nomad-b.png" alt="Lateral">
-          <div class="hv-lbl">LATERAL</div>
-        </div>
-        <div class="hv-t" onclick="setHV(this,'nomad-c.png')">
-          <img src="nomad-c.png" alt="Rear">
-          <div class="hv-lbl">REAR</div>
-        </div>
-        <div class="hv-t" onclick="setHV(this,'holo-screen.png')">
-          <img src="holo-screen.png" alt="Model">
-          <div class="hv-lbl">MODEL</div>
-        </div>
-      </div>
-      <p class="fig" style="margin-top:10px" id="hv-cap">Fig. 04 — Descending Data · Front view &nbsp;·&nbsp; Click to rotate</p>
-    </div>
-    <div class="info">
-      <span class="wn">RENDERED · 04</span>
-      <h3 class="wt">Descending Data:<small>Portrait of an Ego (10 Slices)</small></h3>
-      <div class="specs">
-        <div class="sp"><span class="sl">Medium</span><span class="sv">Plexiglass, clear mylar print, edge-lit LED</span></div>
-        <div class="sp"><span class="sl">Dimensions</span><span class="sv">36″h + 6″ box (42″h total) × 24″w × 6″d</span></div>
-        <div class="sp"><span class="sl">Structure</span><span class="sv">10 slices · 2″ air gaps · COB LED stand</span></div>
-        <div class="sp"><span class="sl">Date</span><span class="sv">2026</span></div>
-      </div>
-      <p class="wnote">The ego as holographic structure — present, luminous, entirely dependent on a light source for its existence. Ten architectural slices of the figure, each printed on transparent mylar laminated to plexiglass, stacked with precision air gaps. The LED base fires upward through the panel edges; light propagates via total internal reflection until it strikes the printed ink, which glows. The figure does not project outward. It illuminates from within its own material. Remove the power and the portrait disappears.<br><br><span style="color:var(--d);font-size:11px">Click thumbnails to rotate viewing angle.</span></p>
-    </div>
-  </div>
-
-  <div class="dash">—</div>
-
-  <!-- 05 VIDEO -->
-  <div class="row">
-    <div>
-      <div class="vwrap">
-        <iframe src="https://player.vimeo.com/video/1189501800?loop=1&title=0&byline=0&portrait=0&color=a8c060"
-                frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
-                style="position:absolute;top:0;left:0;width:100%;height:100%"></iframe>
-      </div>
-      <p class="fig">Fig. 05 — Corpus Solus (Face 13) · MP4, looped · Vimeo</p>
-    </div>
-    <div class="info">
-      <span class="wn">RENDERED · 05</span>
-      <h3 class="wt">Corpus Solus<small>(Face 13)</small></h3>
-      <div class="specs">
-        <div class="sp"><span class="sl">Format</span><span class="sv">MP4, looped</span></div>
-        <div class="sp"><span class="sl">Display</span><span class="sv">Any monitor · Tested at 60″</span></div>
-        <div class="sp"><span class="sl">Date</span><span class="sv">2026</span></div>
-      </div>
-      <p class="wnote">A face recorded in the private act of orgasm — the body's glitch, the moment flesh exceeds its own architecture. The face dissolves: not into abstraction but into involuntary sensation, the social mask suspended. What the digital interface promises and structurally forecloses, the body enacts alone. The counterpart to <em>Corpus Nullius</em>: where the chair holds absence, this holds the act. The loop holds what cannot be held. Played on any screen. Witnessed by no one.</p>
-    </div>
-  </div>
-
-</div>
 </section>
 
 <section id="contact">
-<div class="W" style="border-bottom:none">
-  <div class="sh"><span class="sn">02.</span><h2 class="st">Contact</h2></div>
-  <div class="cg">
-    <div class="cb">
-      <p>Artist</p>
-      <p>Natasha Bajc</p>
-      <p class="sub">Artist · Architect · AI Researcher</p>
-    </div>
-    <div class="cb">
-      <p>Enquiries</p>
-      <a href="mailto:natasha@natashabajc.com">natasha@natashabajc.com</a>
-      <a href="mailto:natasha.bajc@nexushestia.com">natasha.bajc@nexushestia.com</a>
-    </div>
-    <div class="cb">
-      <p>Practice</p>
-      <a href="https://technosomaticarchitecture.vercel.app" target="_blank">Technosomatic Architecture ↗</a>
-      <a href="https://technosomatic-holoscene.vercel.app" target="_blank">Descending Data: Portrait of an Ego ↗</a>
-      <p class="sub" style="margin-top:6px">Nexus Hestia Technologies · SCI-Arc / USC</p>
+  <div class="W" style="border-bottom:none">
+    <div class="sh"><span class="sn">03.</span><h2 class="st">Contact</h2></div>
+    <div class="cg">
+      <div class="cb">
+        <p>Artist</p>
+        <p>Natasha Bajc</p>
+        <p class="sub">Artist · Architect · AI Researcher</p>
+        <p class="sub" style="margin-top:8px">Los Angeles, California</p>
+      </div>
+      <div class="cb">
+        <p>Enquiries</p>
+        <a href="mailto:natasha@natashabajc.com">natasha@natashabajc.com</a>
+        <a href="mailto:natasha.bajc@nexushestia.com">natasha.bajc@nexushestia.com</a>
+        <p class="sub" style="margin-top:8px">Nexus Hestia Technologies</p>
+        <p class="sub">SCI-Arc / UCLA / USC</p>
+      </div>
+      <div class="cb">
+        <p>Websites</p>
+        <a href="https://technosomaticarchitecture.vercel.app/" target="_blank">Technosomatic Architecture ↗</a>
+        <a href="https://technosomatic-rendered.vercel.app" target="_blank">Technosomatic — Rendered ↗</a>
+        <a href="https://technosomaticreal.vercel.app/" target="_blank">Technosomatic Real ↗</a>
+        <a href="https://technosomatic-holoscene.vercel.app/" target="_blank">Descending Data ↗</a>
+        <a href="https://theloopofbeing.vercel.app/" target="_blank">The Loop of Being ↗</a>
+      </div>
     </div>
   </div>
-</div>
 </section>
 
 <footer>
@@ -375,19 +562,26 @@ footer{max-width:1160px;margin:0 auto;padding:52px 40px 0;
     <h4>Series</h4>
     <p>Technosomatic — Rendered</p>
     <p>5 Works · 2026</p>
+    <p style="margin-top:10px">Animamus Art Salon</p>
+    <p>Not There Gallery</p>
   </div>
   <div class="fc">
     <h4>Navigation</h4>
     <a href="#works">Works</a>
     <a href="#statement">Statement</a>
-    <a href="https://technosomaticarchitecture.vercel.app" target="_blank">Main Site ↗</a>
+    <a href="#bio">Artist Bio</a>
+    <a href="#contact">Contact</a>
   </div>
   <div class="fc">
-    <h4>Contact</h4>
-    <a href="mailto:natasha@natashabajc.com">natasha@natashabajc.com</a>
-    <a href="https://instagram.com/artnatashabajc" target="_blank">Instagram ↗</a>
+    <h4>Websites</h4>
+    <a href="https://technosomaticarchitecture.vercel.app/" target="_blank">Technosomatic Architecture ↗</a>
+    <a href="https://technosomatic-rendered.vercel.app" target="_blank">Technosomatic — Rendered ↗</a>
+    <a href="https://technosomaticreal.vercel.app/" target="_blank">Technosomatic Real ↗</a>
+    <a href="https://technosomatic-holoscene.vercel.app/" target="_blank">Descending Data ↗</a>
+    <a href="https://theloopofbeing.vercel.app/" target="_blank">The Loop of Being ↗</a>
   </div>
 </footer>
+
 <div class="fb">
   <span>© 2026 Natasha Bajc. All Rights Reserved.</span>
   <span>End of Render.</span>
