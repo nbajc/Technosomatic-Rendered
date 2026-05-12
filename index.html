@@ -119,6 +119,19 @@ transition:transform .45s cubic-bezier(.16,1,.3,1),filter .35s}
 color:rgba(255,255,255,.3);opacity:0;transition:opacity .25s}
 .chair-grid .ci:hover::after{opacity:1}
 
+/* DETAIL CLOSE-UPS */
+.detail-wrap{margin-bottom:52px}
+.detail-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}
+.detail-item{cursor:zoom-in;background:#020202;position:relative}
+.detail-item img{width:100%;display:block;aspect-ratio:1/1;object-fit:cover;
+filter:saturate(.92) contrast(1.05);
+transition:transform .45s cubic-bezier(.16,1,.3,1),filter .35s}
+.detail-item:hover img{transform:scale(1.03);filter:saturate(1.05) contrast(1.08)}
+.detail-cap{padding:8px 2px 14px;font-family:var(--type);font-size:11px;
+color:var(--d);line-height:1.5;letter-spacing:.02em}
+.detail-loc{display:block;font-size:9px;color:var(--g);letter-spacing:.18em;
+text-transform:uppercase;margin-bottom:3px;font-family:var(--mono)}
+
 /* CORPUS NULLUM STATEMENT BLOCK */
 .cn-statement-wrap{border:1px solid var(--r);padding:44px;margin-bottom:80px}
 .cn-stmt-header{font-size:9px;color:var(--g);letter-spacing:.22em;text-transform:uppercase;
@@ -230,6 +243,7 @@ footer{grid-template-columns:1fr;padding:36px 18px 0}
 .fb{flex-direction:column;gap:5px;padding:18px}
 .cg{gap:36px}
 .chair-grid{grid-template-columns:repeat(2,1fr)}
+.detail-grid{grid-template-columns:repeat(2,1fr)}
 .cn-stmt-body{columns:1}
 .bio-grid{grid-template-columns:1fr;gap:36px}
 .bio-photo-wrap{position:static}
@@ -325,7 +339,28 @@ footer{grid-template-columns:1fr;padding:36px 18px 0}
       </div>
     </div>
 
-    <!-- FULL ARTIST STATEMENT -->
+    <!-- CLOSE-UP DETAILS -->
+    <div class="detail-wrap">
+      <div class="gallery-divider">Mark Documentation — Details</div>
+      <div class="detail-grid">
+        <div class="detail-item" onclick="openLB('d5.png','Seat — gilded breasts with red heat marks. The most concentrated zone of marking on the object.')">
+          <img src="d5.png" alt="Seat — gilded breasts">
+          <p class="detail-cap"><span class="detail-loc">Seat</span>Gilded breasts · red heat marks — primary mark cluster</p>
+        </div>
+        <div class="detail-item" onclick="openLB('d2.png','Backrest — gold phallus, close detail. Paint absorbed into damask weave.')">
+          <img src="d2.png" alt="Backrest — gold phallus">
+          <p class="detail-cap"><span class="detail-loc">Backrest</span>Gold phallus — mark absorbed into damask weave</p>
+        </div>
+        <div class="detail-item" onclick="openLB('d1.png','Backrest — green inverted figure in V-formation, gold phallus mark above.')">
+          <img src="d1.png" alt="Backrest — green figure">
+          <p class="detail-cap"><span class="detail-loc">Backrest</span>Green inverted figure, V-formation — gold mark above</p>
+        </div>
+        <div class="detail-item" onclick="openLB('d3.png','Front apron, lower edge — gilded hand marks against near-black ground. Gold trim at base.')">
+          <img src="d3.png" alt="Front apron — gilded hands">
+          <p class="detail-cap"><span class="detail-loc">Front apron</span>Gilded hand marks · gold trim at lower edge</p>
+        </div>
+      </div>
+    </div>
     <div class="cn-statement-wrap">
       <div class="cn-stmt-header">Artist Statement — Corpus Nullum</div>
       <div class="cn-stmt-body">
