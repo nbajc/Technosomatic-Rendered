@@ -132,6 +132,18 @@ color:var(--d);line-height:1.5;letter-spacing:.02em}
 .detail-loc{display:block;font-size:9px;color:var(--g);letter-spacing:.18em;
 text-transform:uppercase;margin-bottom:3px;font-family:var(--mono)}
 
+/* PROCESS DOCUMENTATION BUTTONS */
+.proc-doc-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:52px;padding-top:4px}
+.proc-btn{display:inline-flex;align-items:center;gap:10px;padding:11px 20px;
+border:1px solid var(--r);background:none;color:var(--d);font-family:var(--mono);
+font-size:10px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;
+cursor:crosshair;transition:border-color .2s,color .2s}
+.proc-btn:hover{border-color:var(--g);color:var(--g)}
+.proc-btn svg{flex-shrink:0;opacity:.5;transition:opacity .2s}
+.proc-btn:hover svg{opacity:1}
+.proc-btn.locked{border-style:dashed;color:#555}
+.proc-btn.locked:hover{border-color:var(--g);color:var(--g)}
+
 /* CORPUS NULLUM STATEMENT BLOCK */
 .cn-statement-wrap{border:1px solid var(--r);padding:44px;margin-bottom:80px}
 .cn-stmt-header{font-size:9px;color:var(--g);letter-spacing:.22em;text-transform:uppercase;
@@ -361,6 +373,25 @@ footer{grid-template-columns:1fr;padding:36px 18px 0}
         </div>
       </div>
     </div>
+
+    <!-- PROCESS DOCUMENTATION LINKS -->
+    <div class="proc-doc-row">
+      <a class="proc-btn" href="https://drive.google.com/drive/folders/1pbW3ckmGTtWTaaYRHE4-Gy8bMWGMKtMx?usp=sharing" target="_blank" rel="noopener">
+        <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x=".5" y=".5" width="10" height="10" rx=".5" stroke="currentColor"/>
+          <path d="M3 5.5h5M6 3.5l2 2-2 2" stroke="currentColor" stroke-width=".8"/>
+        </svg>
+        Process Documentation
+      </a>
+      <a class="proc-btn locked" href="https://drive.google.com/drive/folders/1r9dSpk7QxTaWsmNG1zwB8xMpfyxEFkHC?usp=sharing" target="_blank" rel="noopener">
+        <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="5" width="7" height="5.5" rx=".5" stroke="currentColor"/>
+          <path d="M3.5 5V3.5a2 2 0 0 1 4 0V5" stroke="currentColor" stroke-width=".8"/>
+        </svg>
+        Process Documentation — Permission Required
+      </a>
+    </div>
+
     <div class="cn-statement-wrap">
       <div class="cn-stmt-header">Artist Statement — Corpus Nullum</div>
       <div class="cn-stmt-body">
